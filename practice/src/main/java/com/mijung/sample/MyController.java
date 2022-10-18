@@ -7,7 +7,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.hc.client5.http.fluent.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,19 +25,6 @@ public class MyController {
 	public String getName(HttpServletResponse response) {
 		return "ajaxTest";   //
 	}
-	
-	@GetMapping(value="/googleNews",produces = "application/json;charset=utf-8")
-	@ResponseBody  // for AJAX
-	public String getNews(String keyWord) throws Exception {
-		
-	  log.info("체킁:" + keyWord);
-	  String content = Request.get("https://news.google.com/rss/search?q=blackpink&hl=ko&gl=KR&ceid=KR:ko")
-		       .execute()
-		       .returnContent().toString();
-		return content;   //
-	}
-	
-	
 	
 	@PostMapping("/post")
 	@ResponseBody
