@@ -10,9 +10,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/x2js/1.2.0/xml2json.min.js"></script>
 </head>
 <body>
+
 	<h1>월요일은 없어졌으면 좋겠어용</h1>
     <input type="text" id="schTxt" value="" autofocus><br>
+    <div id="disp"></div>
 <script>
+        const cdisp= document.querySelector("#disp");
+        var x2js = new X2JS();
         const cschTxt = document.querySelector("#schTxt");
         cschTxt.addEventListener("keydown", function () {
             if (event.keyCode == 13) {
@@ -23,10 +27,23 @@
                     data: "keyWord=" + cschTxt.value,
                     dataType: "text",  // 요건 항상 일단 text로 하는 게 디버깅에 유리
                     success: function (data) {
-                        var x2js = new X2JS();
                         var jsonObj = x2js.xml_str2json(data);
-                        console.log(data);
-                        console.log(jsonObj);  // 누느로 화긴!
+                        console.log(data);      // xml 문자열
+                        console.log(jsonObj);  // xml문자열을 json으로 변환함
+                        var v_items = jsonObj.rss.channel.item;
+                        console.log(v_items);  // 디버깅용으로 자주 누느로 화인
+                        var v_tblStr = "<table border=1>";
+                        v_tblStr += "<tr><th>순번</th><th>제목</th><th>링크</th></tr>";
+                        for(let i=0; i<v_items.length; i++){
+                            v_tblStr += "<tr>";
+                            v_tblStr += `<td>\${i+1}</td>`; // jsp안에 사용할 때 \ 붙이는 거 잊지 말길
+                            v_tblStr += `<td>\${v_items[i].title}</td>`;
+                            v_tblStr += `<td><a href="\${v_items[i].link}" >누느로보깅 </a></td>`;
+                            v_tblStr += "</tr>";    
+                        }
+                        v_tblStr += "</table>";
+                        cdisp.innerHTML = v_tblStr;  // 화면에 출력
+
                     },
                     error: function (xhr, status, error) {
                         console.log("code: " + xhr.status)

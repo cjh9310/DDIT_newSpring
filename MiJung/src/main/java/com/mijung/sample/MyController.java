@@ -1,5 +1,6 @@
 package com.mijung.sample;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,7 +33,9 @@ public class MyController {
 	public String getNews(String keyWord) throws Exception {
 		
 	  log.info("체킁:" + keyWord);
-	  String content = Request.get("https://news.google.com/rss/search?q=blackpink&hl=ko&gl=KR&ceid=KR:ko")
+	  String encKeyword = URLEncoder.encode(keyWord, "UTF-8");
+	  //서버 우회 
+	  String content = Request.get("https://news.google.com/rss/search?q=" + encKeyword + "&hl=ko&gl=KR&ceid=KR:ko")
 		       .execute()
 		       .returnContent().toString();
 		return content;   //
