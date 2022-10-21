@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+<!-- 너무 쉬운 건 눈에서 벗어나게 됨, 좋지 않음
+	<typeAliases>
+		<package name="com.mijung.sample.vo"/>
+	</typeAliases>
+-->
+
+ 	<typeAliases>
+		<typeAlias type="com.mijung.sample.vo.SubinVO" alias="subinVO"/>
+		<typeAlias type="com.mijung.sample.vo.MinMaxVO" alias="minMaxVO"/>
+	</typeAliases>
+ 
+ </configuration>

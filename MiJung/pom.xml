@@ -34,6 +34,14 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
+		<!-- 웹소켓 실시간 알림등 구현에 필요 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-websocket</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -170,11 +178,33 @@
 			<version>2.0.7</version>
 		</dependency>
 
-		<!-- Test  Junit5가 테스트 프레임워크로 성장-->
+		<!-- jdbc를 도와주는 스프링 라이브러리 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<!-- db transaction 도와주는 라이브러리 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<!-- Test Junit5가 테스트 프레임워크로 성장 -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
 			<version>5.9.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Junit5을 편하게 도와주는 Spring 라이브러리 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework-version}</version>
 			<scope>test</scope>
 		</dependency>
 

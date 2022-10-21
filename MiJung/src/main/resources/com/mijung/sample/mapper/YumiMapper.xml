@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mijung.sample.mapper.YumiMapper">
+	<select id="readYumi" resultType="int">
+	 <![CDATA[  
+		select count(*) from jobs where max_salary < 9000 and min_salary > 5000
+	 ]]>
+	</select>
+</mapper>
