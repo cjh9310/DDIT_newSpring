@@ -14,12 +14,24 @@
 
 	<!-- 정적자원 관리 -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/ckeditor/**" location="/resources/ckeditor/" />
+	<mvc:resources mapping="/ckUpload/**" location="/resources/ckUpload/" />
+	<mvc:resources mapping="/css/**" location="/resources/css/" />
+	<mvc:resources mapping="/js/**" location="/resources/js/" />
 
 	<!-- 기본 View Resolver 세팅 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
+		<!-- 꼭 필요한 건 아닌 데 이런 것도 Bean이 된다는 걸 확인 차원에서 -->
+    <bean id="uploadPath" class="java.lang.String">
+		<constructor-arg value="D:\myTool\myWork\MiJung\src\main\webapp\resources"/>
+	</bean>
+	
+	<!-- multipart 설정후에 요거까지 등록해줘야 사용가능 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
 	
 	<!-- class 파일 스캔, controller만 스캔하도록 설정하기도 함 -->
 	<context:component-scan base-package="com.mijung.sample" />
