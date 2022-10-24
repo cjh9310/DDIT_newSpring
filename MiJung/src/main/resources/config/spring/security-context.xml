@@ -5,6 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
+	<bean id="bCryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 	<security:http>
 		<security:headers>
 			<security:frame-options policy="SAMEORIGIN"/>
@@ -16,10 +17,12 @@
 	
 	<security:authentication-manager>
 		<security:authentication-provider>
+			<security:password-encoder ref=""/>
 			<security:user-service>
 				<security:user name="suhyun" password="{noop}roze" authorities="ROLE_SUHYUN" disabled="false"/>
 			</security:user-service>
 		</security:authentication-provider>
+		
 	</security:authentication-manager>
 
 </beans>

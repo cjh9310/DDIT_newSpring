@@ -10,9 +10,9 @@
 		</layout>
 	</appender>
 	
-	<!-- Application Loggers -->
+	<!-- 내가 만드는 것들 로그  당근  debug-->
 	<logger name="com.mijung.sample">
-		<level value="info" />
+		<level value="debug" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
