@@ -5,11 +5,12 @@
 		select count(*) from jobs  where max_salary > #{merong}
 	</select>
 	
-	<!-- 매개변수가 여러개 일 때 보통 vo를 이용 -->
+	<!-- 매개변수가 여러개 일 때 보통 vo를 이용 
 	<select id="read2" resultType="int" parameterType="minMaxVO">
 	<![CDATA[  
 		select count(*) from jobs  where min_salary > #{min} and max_salary < ${max}
 	]]>
 	</select>
+	-->
 	
 </mapper>

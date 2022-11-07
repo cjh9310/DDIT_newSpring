@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mijung.sample.mapper.HeyrimMapper">
+	
+	<select id="getList" resultType="heyrimVO">
+		select * from hyerim
+	</select>
+	
+	<select id="getNam" parameterType="String" resultType="heyrimVO">
+		select * from hyerim where nam_id = #{namId}
+	</select>
+	
+	<insert id="insertNam" parameterType="heyrimVO" >
+	  insert into hyerim values(heyrim_seq.nextval,#{namName} ,#{namTel} ,#{namGrade})
+	</insert>
+	
+	<update id="updateNam" parameterType="heyrimVO">
+	  UPDATE hyerim set nam_name = #{namName},
+	                    nam_tel = #{namTel},
+	                    nam_grade = #{namGrade}
+	                    where nam_id = #{namId}                  
+	</update>
+	
+	<delete id="deleteNam" parameterType="heyrimVO">
+	  DELETE FROM hyerim WHERE nam_id = #{namId}
+	</delete>
+</mapper>

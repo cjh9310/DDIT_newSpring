@@ -10,8 +10,9 @@
 		<security:headers>
 			<security:frame-options policy="SAMEORIGIN"/>
 			<security:xss-protection />
-			<security:content-security-policy policy-directives="srcipt-src: 'self'"/>
+<!-- 			<security:content-security-policy policy-directives="script-src: 'self'"/> -->
 		</security:headers>
+		<security:csrf disabled="false"/>
 		<security:intercept-url pattern="/cktest/sample" access="hasRole('ROLE_SUHYUN')"/>
 		<security:intercept-url pattern="/**" access="permitAll"/>
 		<security:form-login />
